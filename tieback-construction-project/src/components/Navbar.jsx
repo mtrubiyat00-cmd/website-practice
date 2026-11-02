@@ -49,7 +49,7 @@ export default function Navbar() {
       <div className="container nav-wrap">
         <Logo />
 
-        {/* MOBILE MENU BUTTON */}
+        {/* MOBILE MENU */}
         <button
           className="menu-toggle"
           type="button"
@@ -77,21 +77,25 @@ export default function Navbar() {
             onMouseEnter={() => setServicesOpen(true)}
             onMouseLeave={() => setServicesOpen(false)}
           >
-            <button
-              type="button"
-              className={`nav-dropdown-toggle ${isServicesPage ? "active" : ""}`}
-              onClick={() => setServicesOpen((value) => !value)}
-              aria-expanded={servicesOpen}
+            <NavLink
+              to="/services"
+              className={`nav-dropdown-link ${isServicesPage ? "active" : ""}`}
+              onClick={close}
             >
               Services
+            </NavLink>
+
+            <button
+              type="button"
+              className="nav-dropdown-toggle"
+              onClick={() => setServicesOpen((value) => !value)}
+              aria-label="Toggle Services submenu"
+              aria-expanded={servicesOpen}
+            >
               <ChevronDown size={15} />
             </button>
 
             <div className="nav-dropdown-menu">
-              <NavLink to="/services" end onClick={close}>
-                Services
-              </NavLink>
-
               <NavLink
                 to="/services/property-maintenance"
                 onClick={close}
