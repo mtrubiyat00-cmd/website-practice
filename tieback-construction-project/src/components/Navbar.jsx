@@ -1,7 +1,7 @@
 
 import { useState } from "react";
-import { NavLink, Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { NavLink, Link, useLocation } from "react-router-dom";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 function Logo() {
   return (
@@ -33,14 +33,20 @@ function Logo() {
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
 
-  const close = () => setOpen(false);
+  const location = useLocation();
+
+  const close = () => {
+    setOpen(false);
+    setServicesOpen(false);
+  };
+
+  const isServicesPage = location.pathname.startsWith("/services");
 
   return (
     <header className="site-header">
       <div className="container nav-wrap">
-
-        {/* COMPANY LOGO */}
         <Logo />
 
         {/* MOBILE MENU BUTTON */}
@@ -48,11 +54,7 @@ export default function Navbar() {
           className="menu-toggle"
           type="button"
           onClick={() => setOpen((value) => !value)}
-          aria-label={
-            open
-              ? "Close navigation menu"
-              : "Open navigation menu"
-          }
+          aria-label={open ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={open}
           aria-controls="primary-navigation"
         >
@@ -69,9 +71,42 @@ export default function Navbar() {
             Home
           </NavLink>
 
-          <NavLink to="/services" onClick={close}>
-            Services
-          </NavLink>
+          {/* SERVICES DROPDOWN */}
+          <div
+            className={`nav-dropdown ${servicesOpen ? "is-open" : ""}`}
+            onMouseEnter={() => setServicesOpen(true)}
+            onMouseLeave={() => setServicesOpen(false)}
+          >
+            <button
+              type="button"
+              className={`nav-dropdown-toggle ${isServicesPage ? "active" : ""}`}
+              onClick={() => setServicesOpen((value) => !value)}
+              aria-expanded={servicesOpen}
+            >
+              Services
+              <ChevronDown size={15} />
+            </button>
+
+            <div className="nav-dropdown-menu">
+              <NavLink to="/services" end onClick={close}>
+                Services
+              </NavLink>
+
+              <NavLink
+                to="/services/property-maintenance"
+                onClick={close}
+              >
+                Property Maintenance
+              </NavLink>
+
+              <NavLink
+                to="/services/property-preservation"
+                onClick={close}
+              >
+                Property Preservation
+              </NavLink>
+            </div>
+          </div>
 
           <NavLink to="/about" onClick={close}>
             About Us
@@ -81,7 +116,6 @@ export default function Navbar() {
             Contact Us
           </NavLink>
         </nav>
-
       </div>
     </header>
   );
