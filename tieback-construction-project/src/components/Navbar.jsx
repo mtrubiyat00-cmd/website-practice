@@ -6,14 +6,11 @@ import { Menu, X, ChevronDown } from "lucide-react";
 function Logo() {
   return (
     <Link className="brand" to="/" aria-label="Tieback Construction home">
-      <span className="brand-mark" aria-hidden="true">
-        <span />
-      </span>
-
-      <span className="brand-copy">
-        <strong>TIEBACK</strong>
-        <small>CONSTRUCTION</small>
-      </span>
+      <img
+        src="/tieback-logo.png"
+        alt="Tieback Construction"
+        className="header-logo-img"
+      />
     </Link>
   );
 }
