@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { ArrowUpRight, Mail, Phone, MapPin } from "lucide-react";
 
@@ -6,12 +7,24 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="container footer-main">
         <div className="footer-about">
-          <Link className="brand brand-light" to="/" aria-label="Tieback Construction home">
-            <span className="brand-mark" aria-hidden="true"><span /></span>
-            <span className="brand-copy"><strong>TIEBACK</strong><small>CONSTRUCTION</small></span>
+          <Link
+            className="footer-logo-link"
+            to="/"
+            aria-label="Tieback Construction home"
+          >
+            <img
+              src="/tieback-logo.png"
+              alt="Tieback Construction"
+              className="footer-logo-img"
+            />
           </Link>
-          <p>Property maintenance and preservation services supporting residential properties and the people responsible for them.</p>
+
+          <p>
+            Property maintenance and preservation services supporting
+            residential properties and the people responsible for them.
+          </p>
         </div>
+
         <div className="footer-links">
           <h3>Explore</h3>
           <Link to="/">Home</Link>
@@ -19,21 +32,42 @@ export default function Footer() {
           <Link to="/about">About Us</Link>
           <Link to="/contact">Contact Us</Link>
         </div>
+
         <div className="footer-links">
           <h3>Our Services</h3>
-          <Link to="/services#property-maintenance">Property Maintenance</Link>
-          <Link to="/services#property-preservation">Property Preservation</Link>
+          <Link to="/services#property-maintenance">
+            Property Maintenance
+          </Link>
+          <Link to="/services#property-preservation">
+            Property Preservation
+          </Link>
         </div>
+
         <div className="footer-contact">
           <h3>Contact</h3>
-          <a href="mailto:support@tiebackconstruction.com"><Mail size={16} /> support@tiebackconstruction.com</a>
-          <a href="tel:+15165187361"><Phone size={16} /> +1 (516) 518-7361</a>
-          <p><MapPin size={16} /> New York City and surrounding areas</p>
+          <a href="mailto:support@tiebackconstruction.com">
+            <Mail size={16} />
+            support@tiebackconstruction.com
+          </a>
+          <a href="tel:+15165187361">
+            <Phone size={16} />
+            +1 (516) 518-7361
+          </a>
+          <p>
+            <MapPin size={16} />
+            New York City and surrounding areas
+          </p>
         </div>
       </div>
+
       <div className="container footer-bottom">
-        <span>© {new Date().getFullYear()} Tieback Construction. All Rights Reserved.</span>
-        <Link to="/contact">Start a conversation <ArrowUpRight size={14} /></Link>
+        <span>
+          © {new Date().getFullYear()} Tieback Construction.
+          All Rights Reserved.
+        </span>
+        <Link to="/contact">
+          Start a conversation <ArrowUpRight size={14} />
+        </Link>
       </div>
     </footer>
   );
