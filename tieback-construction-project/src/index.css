@@ -97,3 +97,73 @@
   .services-hero{min-height:385px}
   .services-hero .page-hero-content{padding:60px 0}
 }
+
+/* HOMEPAGE SERVICE PROCESS - THREE STEP BLOCKS */
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+
+.process-steps > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  min-height: 190px;
+  padding: 25px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.process-steps > div > span {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #8fc0ef;
+  margin-bottom: 22px;
+  padding: 0;
+}
+
+.process-steps strong {
+  display: block;
+  font: 700 16px/1.4 Manrope, sans-serif;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.process-steps small {
+  display: block;
+  font-size: 12px;
+  line-height: 1.8;
+  color: #c2d1df;
+  margin: 0;
+}
+
+/* TABLET AND MOBILE */
+
+@media (max-width: 900px) {
+  .process-layout {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+}
+
+@media (max-width: 700px) {
+  .process-steps {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .process-steps > div {
+    min-height: auto;
+    padding: 22px;
+  }
+
+  .process-steps > div > span {
+    margin-bottom: 12px;
+  }
+}
