@@ -380,3 +380,108 @@
     white-space: normal;
   }
 }
+
+/* =========================================
+   PROPERTY MAINTENANCE - COLORFUL SERVICE GRID
+========================================= */
+
+.service-detail-section:not(.preservation-detail) {
+  background: linear-gradient(135deg, #f0f6fc 0%, #ffffff 55%, #edf4fb 100%);
+  padding-top: 65px;
+  padding-bottom: 70px;
+}
+
+.service-detail-section:not(.preservation-detail) .section-heading {
+  margin-bottom: 32px;
+}
+
+.service-detail-section:not(.preservation-detail) .service-detail-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.service-detail-section:not(.preservation-detail) .service-detail-card {
+  min-height: 225px;
+  padding: 30px;
+  border-radius: 8px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Four coordinated card colors */
+
+.service-detail-section:not(.preservation-detail)
+.service-detail-card:nth-child(1) {
+  background: #eaf3ff;
+  border-color: #d5e6fb;
+}
+
+.service-detail-section:not(.preservation-detail)
+.service-detail-card:nth-child(2) {
+  background: #eaf7f5;
+  border-color: #d1ebe5;
+}
+
+.service-detail-section:not(.preservation-detail)
+.service-detail-card:nth-child(3) {
+  background: #fff5e9;
+  border-color: #f4e3cc;
+}
+
+.service-detail-section:not(.preservation-detail)
+.service-detail-card:nth-child(4) {
+  background: #f2edff;
+  border-color: #e1d8fa;
+}
+
+/* Matching icon backgrounds */
+
+.service-detail-section:not(.preservation-detail)
+.service-detail-card:nth-child(1) .service-detail-icon {
+  background: #d5e7ff;
+  color: #2563a6;
+}
+
+.service-detail-section:not(.preservation-detail)
+.service-detail-card:nth-child(2) .service-detail-icon {
+  background: #d3eee7;
+  color: #16816d;
+}
+
+.service-detail-section:not(.preservation-detail)
+.service-detail-card:nth-child(3) .service-detail-icon {
+  background: #ffe8cb;
+  color: #bd7624;
+}
+
+.service-detail-section:not(.preservation-detail)
+.service-detail-card:nth-child(4) .service-detail-icon {
+  background: #e4dcff;
+  color: #7151bd;
+}
+
+/* Card hover effect */
+
+.service-detail-section:not(.preservation-detail)
+.service-detail-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(27, 62, 100, 0.09);
+}
+
+/* Tablet and mobile */
+
+@media (max-width: 700px) {
+  .service-detail-section:not(.preservation-detail) {
+    padding-top: 55px;
+    padding-bottom: 55px;
+  }
+
+  .service-detail-section:not(.preservation-detail) .service-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .service-detail-section:not(.preservation-detail) .service-detail-card {
+    min-height: auto;
+    padding: 25px;
+  }
+}
