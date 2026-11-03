@@ -4,200 +4,251 @@ import {
   ArrowLeft,
   ArrowRight,
   ArrowUpRight,
+  CheckCircle2,
+  ClipboardCheck,
+  ShieldCheck,
+  Trees,
+  Trash2,
+  DoorOpen,
+  Wrench,
   House,
 } from "lucide-react";
 import PageMeta from "../components/PageMeta";
 
-const services = [
+const preservationGroups = [
   {
-    title: "Lawn Care and Landscaping",
-    description:
-      "Exterior grounds care and landscaping services to help maintain a property's appearance.",
+    icon: ClipboardCheck,
+    title: "Property Inspections & Securing",
+    items: [
+      "Interior and exterior property inspections",
+      "Occupancy and condition verification",
+      "Lock changes and lockbox installation",
+      "Window and door board-ups",
+      "Property condition documentation and photos",
+    ],
   },
   {
-    title: "Debris Removal and Cleanouts",
-    description:
-      "Removal of unwanted debris and property contents to help maintain clean, orderly spaces.",
+    icon: ShieldCheck,
+    title: "Property Protection & Maintenance",
+    items: [
+      "Winterization and de-winterization",
+      "Emergency property securing",
+      "Roof tarping and temporary protection",
+      "Lawn mowing and landscaping",
+      "Snow and ice removal",
+    ],
   },
   {
-    title: "Pressure Washing",
-    description:
-      "Exterior surface cleaning to help improve property appearance and general upkeep.",
+    icon: Trash2,
+    title: "Trash-Outs & Cleaning",
+    items: [
+      "Interior and exterior debris removal",
+      "Furniture and appliance removal",
+      "Foreclosure and eviction cleanouts",
+      "Deep cleaning and property cleanup",
+    ],
   },
   {
-    title: "Vacant Property Maintenance",
-    description:
-      "Maintenance support for vacant residential properties to help preserve their condition.",
+    icon: Wrench,
+    title: "Property Repairs & REO Services",
+    items: [
+      "Minor interior and exterior repairs",
+      "Drywall, door, and window repairs",
+      "Plumbing leak repairs",
+      "Damage mitigation",
+      "REO property maintenance and market-ready preparation",
+    ],
   },
 ];
+
+function ServiceCard({ icon: Icon, title, items, index }) {
+  return (
+    <article className="service-detail-card">
+      <div className="service-detail-icon">
+        <Icon size={22} />
+      </div>
+
+      <span className="preservation-card-number">
+        0{index + 1}
+      </span>
+
+      <h3>{title}</h3>
+
+      <ul>
+        {items.map((item) => (
+          <li key={item}>
+            <CheckCircle2 size={15} />
+            {item}
+          </li>
+        ))}
+      </ul>
+    </article>
+  );
+}
 
 export default function PropertyPreservation() {
   return (
     <>
       <PageMeta
-        title="Property Preservation Services | Tieback Construction"
-        description="Residential property preservation, lawn care, debris removal, pressure washing, and vacant-property maintenance."
+        title="Professional Property Preservation Services | Tieback Construction"
+        description="Professional residential property preservation, inspections, property securing, winterization, trash-outs, cleaning, repairs, and REO services."
       />
 
       <section
+        className="page-hero services-hero"
         style={{
-          background: "#102F4D",
-          color: "#FFFFFF",
-          padding: "85px 24px",
+          backgroundImage:
+            'linear-gradient(90deg, rgba(9,35,61,.92), rgba(9,35,61,.48)), url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1500&q=85")',
         }}
       >
-        <div style={{ maxWidth: "1120px", margin: "auto" }}>
-          <Link
-            to="/services"
-            style={{
-              color: "#A9C8E2",
-              textDecoration: "none",
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px",
-              fontSize: "13px",
-            }}
-          >
+        <div className="container page-hero-content">
+          <Link to="/services" className="service-back-link">
             <ArrowLeft size={16} /> All Services
           </Link>
 
-          <div className="eyebrow eyebrow-light" style={{ marginTop: "35px" }}>
+          <div className="eyebrow eyebrow-light">
             <span /> PROPERTY PRESERVATION
           </div>
 
-          <h1
-            style={{
-              maxWidth: "750px",
-              fontSize: "clamp(38px, 5vw, 62px)",
-              lineHeight: 1.08,
-              margin: "20px 0",
-            }}
-          >
-            Protecting property condition.
-            <em style={{ color: "#8FC1ED" }}> Maintaining appearance.</em>
+          <h1>
+            Professional Property <em>Preservation Services.</em>
           </h1>
 
-          <p
-            style={{
-              maxWidth: "650px",
-              color: "#D7E3EF",
-              fontSize: "16px",
-              lineHeight: 1.8,
-            }}
-          >
-            Exterior and vacant-property services that help maintain
-            property condition and appearance.
+          <p>
+            We provide comprehensive property preservation solutions
+            to protect vacant, foreclosed, and distressed properties.
+            Our services help prevent property deterioration, maintain
+            security, and keep real estate assets in good condition.
           </p>
 
           <Link
             to="/contact"
-            className="button button-white"
-            style={{ marginTop: "20px" }}
+            className="button button-white preservation-hero-button"
           >
-            Request Service <ArrowUpRight size={16} />
+            Request Preservation Services
+            <ArrowUpRight size={16} />
           </Link>
+
+          <div className="breadcrumb">
+            <Link to="/">Home</Link>
+            <span>/</span>
+            <Link to="/services">Services</Link>
+            <span>/</span>
+            Property Preservation
+          </div>
         </div>
       </section>
 
-      <section
-        style={{
-          background: "#EAF1F7",
-          padding: "75px 24px",
-        }}
-      >
-        <div style={{ maxWidth: "1120px", margin: "auto" }}>
-          <div className="eyebrow">
-            <span /> OUR PRESERVATION SERVICES
+      <section className="service-detail-section preservation-detail section-pad">
+        <div className="container">
+          <div className="section-heading">
+            <div>
+              <div className="eyebrow">
+                <span /> OUR PRESERVATION SERVICES
+              </div>
+
+              <h2>
+                Protecting properties. <em>Preserving value.</em>
+              </h2>
+            </div>
+
+            <p>
+              We provide property protection, maintenance, cleanup,
+              and repair support for vacant, foreclosed, and distressed
+              residential properties.
+            </p>
           </div>
 
-          <h2
-            style={{
-              color: "#102F4D",
-              fontSize: "clamp(30px, 4vw, 43px)",
-              margin: "18px 0",
-            }}
-          >
-            Exterior and vacant-property support.
-          </h2>
-
-          <p style={{ color: "#49647C", lineHeight: 1.8, maxWidth: "650px" }}>
-            We provide practical exterior and property preservation
-            services to help maintain residential property condition.
-          </p>
-
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 260px), 1fr))",
-              gap: "18px",
-              marginTop: "35px",
-            }}
-          >
-            {services.map((service, index) => (
-              <article
-                key={service.title}
-                style={{
-                  background: "#FFFFFF",
-                  padding: "25px",
-                  borderTop: "3px solid #285F91",
-                }}
-              >
-                <div
-                  style={{
-                    color: "#285F91",
-                    fontSize: "12px",
-                    fontWeight: 800,
-                  }}
-                >
-                  0{index + 1}
-                </div>
-
-                <h3 style={{ color: "#102F4D", marginTop: "18px" }}>
-                  {service.title}
-                </h3>
-
-                <p style={{ color: "#49647C", lineHeight: 1.8, fontSize: "13px" }}>
-                  {service.description}
-                </p>
-              </article>
+          <div className="service-detail-grid">
+            {preservationGroups.map((group, index) => (
+              <ServiceCard
+                key={group.title}
+                {...group}
+                index={index}
+              />
             ))}
           </div>
         </div>
       </section>
 
-      <section
-        style={{
-          background: "#102F4D",
-          color: "#FFFFFF",
-          padding: "60px 24px",
-        }}
-      >
-        <div style={{ maxWidth: "1120px", margin: "auto" }}>
-          <div className="eyebrow eyebrow-light">
-            <span /> NEED PROPERTY PRESERVATION?
+      <section className="service-process section-pad">
+        <div className="container service-process-layout">
+          <div>
+            <div className="eyebrow eyebrow-light">
+              <span /> OUR PRESERVATION APPROACH
+            </div>
+
+            <h2>
+              Property protection with <em>clear coordination.</em>
+            </h2>
+
+            <p>
+              We focus on understanding property requirements,
+              coordinating the requested services, and keeping
+              communication clear throughout the assignment.
+            </p>
           </div>
 
-          <h2 style={{ fontSize: "clamp(28px, 4vw, 40px)" }}>
-            Let's discuss your property preservation needs.
-          </h2>
+          <div className="service-process-steps">
+            <div>
+              <span>01</span>
+              <div>
+                <strong>Understand the request</strong>
+                <p>Review the property need and requested scope.</p>
+              </div>
+            </div>
 
-          <p style={{ color: "#D7E3EF", lineHeight: 1.8 }}>
-            Contact our team to discuss your property's exterior
-            maintenance and preservation requirements.
-          </p>
+            <div>
+              <span>02</span>
+              <div>
+                <strong>Coordinate the service</strong>
+                <p>Arrange the appropriate next steps and property access.</p>
+              </div>
+            </div>
 
-          <Link to="/contact" className="button button-white">
-            Contact Our Team <ArrowRight size={16} />
+            <div>
+              <span>03</span>
+              <div>
+                <strong>Complete and communicate</strong>
+                <p>Carry out the work and share relevant updates.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="cta-section section-pad">
+        <div className="container cta-inner">
+          <div>
+            <div className="eyebrow">
+              <span /> NEED PROPERTY PRESERVATION?
+            </div>
+
+            <h2>
+              Protect and maintain your <em>property assets.</em>
+            </h2>
+
+            <p>
+              Contact our team to discuss your property preservation
+              and vacant-property maintenance requirements.
+            </p>
+          </div>
+
+          <Link to="/contact" className="button button-primary">
+            Request Preservation Services
+            <ArrowUpRight size={17} />
           </Link>
+        </div>
+      </section>
 
-          <p style={{ marginTop: "25px" }}>
-            <Link
-              to="/services/property-maintenance"
-              style={{ color: "#A9C8E2", textDecoration: "none" }}
-            >
-              Explore Property Maintenance <ArrowUpRight size={15} />
-            </Link>
-          </p>
+      <section className="service-cross-link">
+        <div className="container">
+          <p>Looking for general residential repairs and upkeep?</p>
+
+          <Link to="/services/property-maintenance">
+            Explore Property Maintenance
+            <ArrowRight size={16} />
+          </Link>
         </div>
       </section>
     </>
