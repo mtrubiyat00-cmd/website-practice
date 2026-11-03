@@ -6,6 +6,8 @@ import {
   X,
   ChevronDown,
   Phone,
+  Facebook,
+  Instagram,
 } from "lucide-react";
 
 function Logo() {
@@ -14,23 +16,10 @@ function Logo() {
       className="brand"
       to="/"
       aria-label="Tieback Construction home"
-      style={{
-        display: "flex",
-        alignItems: "center",
-        flexShrink: 0,
-      }}
     >
       <img
         src="/images/tieback-logo.png"
         alt="Tieback Construction logo"
-        style={{
-          width: "clamp(140px, 16vw, 190px)",
-          height: "auto",
-          maxHeight: "82px",
-          objectFit: "contain",
-          objectPosition: "left center",
-          display: "block",
-        }}
       />
     </Link>
   );
@@ -41,22 +30,21 @@ export default function Navbar() {
   const [servicesOpen, setServicesOpen] = useState(false);
 
   const location = useLocation();
+  const isServicesPage = location.pathname.startsWith("/services");
 
   const close = () => {
     setOpen(false);
     setServicesOpen(false);
   };
 
-  const isServicesPage = location.pathname.startsWith("/services");
-
   return (
     <header className="site-header">
       <div className="container nav-wrap tb-header-layout">
 
-        {/* COMPANY LOGO */}
+        {/* LOGO */}
         <Logo />
 
-        {/* MOBILE MENU BUTTON */}
+        {/* MOBILE MENU */}
         <button
           className="menu-toggle"
           type="button"
@@ -68,7 +56,7 @@ export default function Navbar() {
           {open ? <X size={23} /> : <Menu size={23} />}
         </button>
 
-        {/* CENTERED NAVIGATION */}
+        {/* NAVIGATION */}
         <nav
           id="primary-navigation"
           className={open ? "main-nav is-open" : "main-nav"}
@@ -78,7 +66,6 @@ export default function Navbar() {
             Home
           </NavLink>
 
-          {/* SERVICES DROPDOWN */}
           <div
             className={`nav-dropdown ${servicesOpen ? "is-open" : ""}`}
             onMouseEnter={() => setServicesOpen(true)}
@@ -128,7 +115,17 @@ export default function Navbar() {
           </NavLink>
         </nav>
 
-        {/* CALL NOW BUTTON */}
+        {/* SOCIAL ICONS */}
+        <div className="tb-header-socials">
+          <span aria-label="Facebook">
+            <Facebook size={19} />
+          </span>
+          <span aria-label="Instagram">
+            <Instagram size={19} />
+          </span>
+        </div>
+
+        {/* CALL NOW */}
         <a
           href="tel:+15165187361"
           className="tb-call-button"
