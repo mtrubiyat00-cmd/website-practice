@@ -1,7 +1,12 @@
 
 import { useState } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown } from "lucide-react";
+import {
+  Menu,
+  X,
+  ChevronDown,
+  Phone,
+} from "lucide-react";
 
 function Logo() {
   return (
@@ -46,10 +51,12 @@ export default function Navbar() {
 
   return (
     <header className="site-header">
-      <div className="container nav-wrap">
+      <div className="container nav-wrap tb-header-layout">
+
+        {/* COMPANY LOGO */}
         <Logo />
 
-        {/* MOBILE MENU */}
+        {/* MOBILE MENU BUTTON */}
         <button
           className="menu-toggle"
           type="button"
@@ -61,7 +68,7 @@ export default function Navbar() {
           {open ? <X size={23} /> : <Menu size={23} />}
         </button>
 
-        {/* MAIN NAVIGATION */}
+        {/* CENTERED NAVIGATION */}
         <nav
           id="primary-navigation"
           className={open ? "main-nav is-open" : "main-nav"}
@@ -120,6 +127,17 @@ export default function Navbar() {
             Contact Us
           </NavLink>
         </nav>
+
+        {/* CALL NOW BUTTON */}
+        <a
+          href="tel:+15165187361"
+          className="tb-call-button"
+          aria-label="Call Tieback Construction at 516-518-7361"
+        >
+          <Phone size={17} />
+          <span>CALL NOW</span>
+        </a>
+
       </div>
     </header>
   );
