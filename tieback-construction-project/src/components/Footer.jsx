@@ -1,6 +1,13 @@
 
 import { Link } from "react-router-dom";
-import { ArrowUpRight, Mail, Phone, MapPin } from "lucide-react";
+import {
+  ArrowUpRight,
+  Mail,
+  Phone,
+  MapPin,
+  Facebook,
+  Instagram,
+} from "lucide-react";
 
 export default function Footer() {
   return (
@@ -23,8 +30,6 @@ export default function Footer() {
                 maxWidth: "220px",
                 objectFit: "contain",
                 display: "block",
-                background: "#FFFFFF",
-                padding: "6px 9px",
               }}
             />
           </Link>
@@ -33,6 +38,17 @@ export default function Footer() {
             Property maintenance and preservation services supporting
             residential properties and the people responsible for them.
           </p>
+
+          {/* SOCIAL MEDIA ICONS */}
+          <div className="footer-socials">
+            <span aria-label="Facebook">
+              <Facebook size={19} />
+            </span>
+
+            <span aria-label="Instagram">
+              <Instagram size={19} />
+            </span>
+          </div>
         </div>
 
         {/* EXPLORE LINKS */}
@@ -77,7 +93,6 @@ export default function Footer() {
             New York City and surrounding areas
           </p>
         </div>
-
       </div>
 
       {/* FOOTER COPYRIGHT */}
