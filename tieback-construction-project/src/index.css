@@ -167,3 +167,90 @@
     margin-bottom: 12px;
   }
 }
+
+/* SERVICES OVERVIEW AND DETAIL PAGE ADDITIONS */
+
+.services-choice-grid {
+  margin-top: 38px;
+}
+
+.service-choice-number,
+.maintenance-card-number,
+.preservation-card-number {
+  display: block;
+  color: #8aa8c4;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin: 0 0 12px;
+}
+
+.service-choice-description {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--muted);
+  margin: 0 0 18px;
+}
+
+.service-choice-button {
+  margin-top: 20px;
+  font-size: 11px;
+  padding: 13px 15px;
+}
+
+.service-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #A9C8E2;
+  font-size: 12px;
+  margin-bottom: 25px;
+}
+
+.maintenance-hero-button,
+.preservation-hero-button {
+  margin-top: 22px;
+}
+
+.service-cross-link {
+  background: #102F4D;
+  padding: 25px 0;
+  color: #fff;
+}
+
+.service-cross-link .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.service-cross-link p {
+  color: #D7E3EF;
+  font-size: 13px;
+  margin: 0;
+}
+
+.service-cross-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #A9C8E2;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  .services-choice-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-choice-button {
+    width: 100%;
+  }
+
+  .service-cross-link .container {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
