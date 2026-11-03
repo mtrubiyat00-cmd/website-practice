@@ -254,3 +254,129 @@
     flex-direction: column;
   }
 }
+
+/* ========================================
+   SERVICES NAVIGATION DROPDOWN FIX
+======================================== */
+
+.nav-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-dropdown-top {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-dropdown-top > a {
+  font-size: 13px;
+  font-weight: 600;
+  color: #4d5b6b;
+  transition: color 0.2s;
+}
+
+.nav-dropdown-top > a:hover,
+.nav-dropdown-top > a.active {
+  color: var(--blue);
+}
+
+.nav-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border: none;
+  background: transparent;
+  color: #4d5b6b;
+  cursor: pointer;
+}
+
+.nav-dropdown-toggle svg {
+  transition: transform 0.2s ease;
+}
+
+.nav-dropdown.is-submenu-open .nav-dropdown-toggle svg {
+  transform: rotate(180deg);
+}
+
+/* Hide submenu by default */
+
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 235px;
+  padding: 8px;
+  background: #ffffff;
+  border: 1px solid #e8edf2;
+  box-shadow: 0 12px 30px rgba(16, 47, 77, 0.14);
+  z-index: 1000;
+}
+
+/* Show submenu on hover, keyboard focus, or click */
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu,
+.nav-dropdown.is-submenu-open .nav-dropdown-menu {
+  display: block;
+}
+
+.nav-dropdown-menu a {
+  display: block;
+  padding: 12px 14px;
+  color: #263445;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-dropdown-menu a:hover,
+.nav-dropdown-menu a.active {
+  background: #EAF2FA;
+  color: #2563A6;
+}
+
+/* MOBILE NAVIGATION */
+
+@media (max-width: 700px) {
+  .nav-dropdown {
+    display: block;
+    width: 100%;
+  }
+
+  .nav-dropdown-top {
+    justify-content: space-between;
+    min-height: 48px;
+    border-bottom: 1px solid #edf0f4;
+  }
+
+  .nav-dropdown-top > a {
+    flex: 1;
+    padding: 14px 0;
+  }
+
+  .nav-dropdown-toggle {
+    padding: 12px;
+  }
+
+  .nav-dropdown-menu {
+    position: static;
+    width: 100%;
+    min-width: 0;
+    padding: 5px 0 5px 14px;
+    border: none;
+    box-shadow: none;
+    background: #f8fafc;
+  }
+
+  .nav-dropdown-menu a {
+    padding: 12px;
+    white-space: normal;
+  }
+}
