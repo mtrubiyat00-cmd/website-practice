@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Phone } from "lucide-react";
 
 function Logo() {
   return (
@@ -98,6 +98,15 @@ export default function Navbar() {
           <NavLink to="/contact" onClick={close}>
             Contact Us
           </NavLink>
+
+          <a
+            href="tel:+15165187361"
+            className="call-now-button"
+            onClick={close}
+          >
+            <Phone size={16} />
+            <strong>Call Now</strong>
+          </a>
         </nav>
       </div>
     </header>
